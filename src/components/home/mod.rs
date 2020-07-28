@@ -1,8 +1,7 @@
-mod article;
 mod header;
 
+use crate::components::button::Button;
 use header::Header;
-use article::Article;
 use yew::prelude::*;
 
 pub struct Home {
@@ -34,9 +33,13 @@ impl Component for Home {
 
   fn view(&self) -> Html {
     html! {
-      <section class="rust-wallpaper h-screen w-full text-white">
+      <section class="h-screen w-full text-white bg-gray-900">
         <Header />
-        <h2>{"Bienvenidos Rustaceans 🦀"}</h2>
+        <div class="flex flex-col items-center justify-center p-4 box-border">
+          <img class="my-10" alt="Rust Venezuela Logo" src="https://avatars3.githubusercontent.com/u/68873317?s=200&v=4" height="200" width="200" />
+          <h2 class="my-4">{"Bienvenidos Rustaceans 🦀"}</h2>
+          <Button text=String::from("Visita nuestro GitHub") href="https://github.com/rust-lang-ve" />
+        </div>
       </section>
     }
   }

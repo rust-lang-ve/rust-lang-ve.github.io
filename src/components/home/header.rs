@@ -31,9 +31,9 @@ impl Component for Header {
 
   fn view(&self) -> Html {
     html! {
-      <header class="flex text-black bg-gray-100 p-4 box-border">
+      <header class="flex text-white bg-black p-4 box-border">
         <div class="flex">
-          <img src="https://avatars3.githubusercontent.com/u/68873317?s=200&v=4" alt="Organization Logo" height="60" width="60" />
+          <img src="https://avatars3.githubusercontent.com/u/68873317?s=60&v=4" alt="Organization Logo" height="60" width="60" />
           <h1 class="box-border px-4">{ "Rust Venezuela" }</h1>
         </div>
       </header>
