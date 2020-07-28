@@ -3,19 +3,27 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
+    "deploy": "yarn build && gh-pages -d dist -b master",
     "build": "webpack --mode production",
-    "start:dev": "webpack-dev-server --mode development"
+    "build:tailwind": "tailwindcss build static/tailwind.css -o static/tailwind.output.css",
+    "start:dev": "webpack-dev-server --mode development",
+    "prestart": "yarn run build:tailwind",
+    "prebuild": "yarn run build:tailwind",
+    "prestart:dev": "yarn run build:tailwind",
+    "prebuild:dev": "yarn run build:tailwind"
   },
   "devDependencies": {
     "@wasm-tool/wasm-pack-plugin": "^1.1.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.3",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
+    "gh-pages": "^3.1.0",
     "style-loader": "^1.2.1",
     "wasm-pack": "^0.9.1",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.5.2"
   }
 }

@@ -1,5 +1,5 @@
-import './static/style.scss';
+import './static/tailwind.output.css';
 
-import("./pkg").then(module => {
+import('./pkg').then((module) => {
   module.run_app();
 });

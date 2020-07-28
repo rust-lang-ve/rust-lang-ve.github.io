@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Alfa Slab One', sans-serif;
+  font-size: 2rem;
+  margin: .4rem 0;
+}
+
+h2 {
+  font-family: 'Alfa Slab One', sans-serif;
+  font-size: 1.8rem;
+  margin: .4rem 0;
+}
+
+h3 {
+  font-family: 'Alfa Slab One', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: .4rem 0;
+}
+
+.rust-wallpaper {
+  background-image: url('https://images.unsplash.com/photo-1531431221349-4a0b92bb795b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1565&q=80');
+}
