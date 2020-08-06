@@ -1,12 +1,16 @@
+mod branding;
+mod social;
+
+use crate::components::header::branding::Branding;
+use crate::components::header::social::Social;
+
 use yew::prelude::*;
 
 pub struct Header {
   link: ComponentLink<Self>,
 }
 
-pub enum Msg {
-  ChildClicked
-}
+pub enum Msg {}
 
 #[derive(Clone, PartialEq, Properties)]
 pub struct Props {}
@@ -31,10 +35,10 @@ impl Component for Header {
 
   fn view(&self) -> Html {
     html! {
-      <header class="flex text-white bg-black p-4 box-border">
-        <div class="flex">
-          <img src="https://avatars3.githubusercontent.com/u/68873317?s=60&v=4" alt="Organization Logo" height="60" width="60" />
-          <h1 class="box-border px-4">{ "Rust Venezuela" }</h1>
+      <header id="header">
+        <div id="header-container">
+          <Branding />
+          <Social />
         </div>
       </header>
     }

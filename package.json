@@ -1,16 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "deploy": "yarn build && gh-pages -d dist -b master",
     "build": "webpack --mode production",
-    "build:tailwind": "tailwindcss build static/tailwind.css -o static/tailwind.output.css",
-    "start:dev": "webpack-dev-server --mode development",
-    "prestart": "yarn run build:tailwind",
-    "prebuild": "yarn run build:tailwind",
-    "prestart:dev": "yarn run build:tailwind",
-    "prebuild:dev": "yarn run build:tailwind"
+    "start:dev": "webpack-dev-server --mode development"
   },
   "devDependencies": {
     "@wasm-tool/wasm-pack-plugin": "^1.1.0",
@@ -24,6 +18,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "tailwindcss": "^1.5.2"
+    "@rust-lang-ve/gh-pages-layout": "^0.1.1"
   }
 }

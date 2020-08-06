@@ -2,7 +2,7 @@
 
 mod components;
 
-use crate::components::home::Home;
+use crate::components::header::Header;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
@@ -41,8 +41,9 @@ impl Component for Model {
   fn view(&self) -> Html {
     html! {
       <div>
-        <main class="flex w-full">
-          <Home />
+        <Header />
+        <main id="main-content">
+          { "Lorem Ipsum" }
         </main>
       </div>
     }
