@@ -18,6 +18,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@rust-lang-ve/gh-pages-layout": "^0.1.1"
+    "@rust-lang-ve/gh-pages-layout": "^0.1.2"
   }
 }
