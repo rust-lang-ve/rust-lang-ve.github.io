@@ -3,7 +3,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "deploy": "yarn build && gh-pages -d dist -b master",
-    "start:dev": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development"
   },
   "devDependencies": {
     "@wasm-tool/wasm-pack-plugin": "^1.1.0",
