@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@rust-lang-ve/gh-pages-layout@^0.1.1":
-  version "0.1.1"
-  resolved "https://npm.pkg.github.com/download/@rust-lang-ve/gh-pages-layout/0.1.1/0fc8a62c7fe2a8ca20d864c5fa4f04f338cddcb18bc22ff5812a3ed4cdf455ac#f17d1202400dae1793af898395459ef6ff98944c"
-  integrity sha512-qwkA7tiRDsn2C91My7sr1YD1dEZ4KcgoJn+gR9F0StkF5ZUTbSsk0Ely8n3u18UUfn35B9C+VMt9W995JIY78g==
+"@rust-lang-ve/gh-pages-layout@^0.1.2":
+  version "0.1.2"
+  resolved "https://npm.pkg.github.com/download/@rust-lang-ve/gh-pages-layout/0.1.2/5ef7110f0a7c7d2f552e5c8eb06dbca31347dc7d706f2934fc2c013083bb5c10#906392dcc08c773068975332790704e217b538b5"
+  integrity sha512-QjkLcmInunqip0X6aGi0ENfGdsdaoaW2qG5AIryWy/WA3R1TMaREPYrtx58wnWVxvMdp6Fz5lmZ5ozt03M0MpA==
 
 "@types/events@*":
   version "3.0.0"

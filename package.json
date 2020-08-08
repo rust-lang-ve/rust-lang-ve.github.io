@@ -1,9 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "dev": "webpack --mode development",
-    "deploy": "yarn build && gh-pages -d dist -b master",
     "build": "webpack --mode production",
+    "deploy": "yarn build && gh-pages -d dist -b master",
     "start:dev": "webpack-dev-server --mode development"
   },
   "devDependencies": {

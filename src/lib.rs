@@ -3,6 +3,7 @@
 mod components;
 
 use crate::components::header::Header;
+use crate::components::home::Home;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
@@ -43,7 +44,7 @@ impl Component for Model {
       <div>
         <Header />
         <main id="main-content">
-          { "Lorem Ipsum" }
+          <Home />
         </main>
       </div>
     }
