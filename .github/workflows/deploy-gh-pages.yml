@@ -14,6 +14,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup GitHub Package Manager
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GPM_TOKEN }}" >> ~/.npmrc
+
       - name: Install and Build
         run: |
           yarn
