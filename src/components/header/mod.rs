@@ -12,14 +12,11 @@ pub struct Header {
 
 pub enum Msg {}
 
-#[derive(Clone, PartialEq, Properties)]
-pub struct Props {}
-
 impl Component for Header {
   type Message = Msg;
-  type Properties = Props;
+  type Properties = ();
 
-  fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
+  fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
     Header {
       link,
     }
@@ -29,7 +26,7 @@ impl Component for Header {
     true
   }
 
-  fn change(&mut self, props: Self::Properties) -> ShouldRender {
+  fn change(&mut self, _: Self::Properties) -> ShouldRender {
     true
   }
 

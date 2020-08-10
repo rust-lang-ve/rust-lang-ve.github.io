@@ -6,14 +6,11 @@ pub struct Branding {
 
 pub enum Msg {}
 
-#[derive(Clone, PartialEq, Properties)]
-pub struct Props {}
-
 impl Component for Branding {
   type Message = Msg;
-  type Properties = Props;
+  type Properties = ();
 
-  fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
+  fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
     Branding {
       link,
     }
@@ -23,7 +20,7 @@ impl Component for Branding {
     true
   }
 
-  fn change(&mut self, props: Self::Properties) -> ShouldRender {
+  fn change(&mut self, _: Self::Properties) -> ShouldRender {
     true
   }
 

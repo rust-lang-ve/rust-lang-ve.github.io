@@ -1,9 +1,11 @@
 #![recursion_limit = "512"]
 
 mod components;
+mod services;
 
 use crate::components::header::Header;
 use crate::components::home::Home;
+use crate::components::projects::Projects;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
@@ -32,7 +34,7 @@ impl Component for Model {
     true
   }
 
-  fn change(&mut self, _props: Self::Properties) -> ShouldRender {
+  fn change(&mut self, _: Self::Properties) -> ShouldRender {
     // Should only return "true" if new properties are different to
     // previously received properties.
     // This component has no properties so we will always return "false".
@@ -45,6 +47,7 @@ impl Component for Model {
         <Header />
         <main id="main-content">
           <Home />
+          <Projects />
         </main>
       </div>
     }
