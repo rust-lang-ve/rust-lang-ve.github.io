@@ -1,4 +1,3 @@
-mod repository;
 mod repositories;
 
 use crate::components::title::Title;
