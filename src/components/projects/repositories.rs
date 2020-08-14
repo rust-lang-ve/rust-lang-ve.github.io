@@ -7,8 +7,8 @@ use yew::services::fetch::{FetchService, FetchTask, Request, Response};
 use yew::services::ConsoleService;
 
 /// URL to fetch repositories for **rust-lang-ve** organization from GitHub
-// const GITHUB_REPOS_URL: &str = "https://api.github.com/orgs/rust-lang-ve/repos";
-const GITHUB_REPOS_URL: &str = "http://127.0.0.1:8080";
+const GITHUB_REPOS_URL: &str = "https://api.github.com/orgs/rust-lang-ve/repos";
+// const GITHUB_REPOS_URL: &str = "http://127.0.0.1:8080";
 
 pub struct Repositories {
   is_fetching: bool,
