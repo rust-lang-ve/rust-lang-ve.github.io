@@ -2,34 +2,27 @@
 
 mod components;
 
+use crate::components::about::About;
+use crate::components::footer::Footer;
 use crate::components::header::Header;
 use crate::components::home::Home;
 use crate::components::projects::Projects;
+use crate::components::members::Members;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
 
-struct Model {
-  link: ComponentLink<Self>,
-  value: i64,
-}
-
-enum Msg {
-  AddOne,
-}
+struct Model;
 
 impl Component for Model {
-  type Message = Msg;
+  type Message = ();
   type Properties = ();
 
-  fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
-    Self { link, value: 0 }
+  fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+    Self
   }
 
-  fn update(&mut self, msg: Self::Message) -> ShouldRender {
-    match msg {
-      Msg::AddOne => self.value += 1,
-    }
+  fn update(&mut self, _: Self::Message) -> ShouldRender {
     true
   }
 
@@ -47,6 +40,9 @@ impl Component for Model {
         <main id="main-content">
           <Home />
           <Projects />
+          <About />
+          <Members />
+          <Footer />
         </main>
       </div>
     }

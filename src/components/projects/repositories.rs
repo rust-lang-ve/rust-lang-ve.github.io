@@ -1,3 +1,5 @@
+use crate::components::projects::repository::{Repository as RepositoryComponent};
+
 use anyhow::Error;
 use serde::Deserialize;
 use serde_json;
@@ -8,7 +10,6 @@ use yew::services::ConsoleService;
 
 /// URL to fetch repositories for **rust-lang-ve** organization from GitHub
 const GITHUB_REPOS_URL: &str = "https://api.github.com/orgs/rust-lang-ve/repos";
-// const GITHUB_REPOS_URL: &str = "http://127.0.0.1:8080";
 
 pub struct Repositories {
   is_fetching: bool,
@@ -57,7 +58,7 @@ impl Component for Repositories {
         self.repositories = Some(repos);
 
         return true;
-      }
+      },
       Msg::FetchFailed => {
         self.is_fetching = false;
         self.fetch_failed = true;
@@ -122,33 +123,12 @@ impl Component for Repositories {
       match &self.repositories {
         Some(repos) => {
           fn render_repo(name: &str, description: &str, language: &Option<String>) -> Html {
-            match language {
-              Some(language) => {
-                html! {
-                  <li class="repository">
-                    <main>
-                      <strong>{ name }</strong>
-                      <p>{ description }</p>
-                    </main>
-                    <footer>
-                      <span>{ language }</span>
-                    </footer>
-                  </li>
-                }
-              },
-              None => {
-                html! {
-                  <li class="repository">
-                    <main>
-                      <strong>{ name }</strong>
-                      <p>{ description }</p>
-                    </main>
-                    <footer>
-                      <span>{ "No Language" }</span>
-                    </footer>
-                  </li>
-                }
-              }
+            html! {
+              <RepositoryComponent
+                description=description
+                name=name
+                language=language
+              />
             }
           }
 

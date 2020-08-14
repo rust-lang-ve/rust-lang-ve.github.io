@@ -1,4 +1,6 @@
+mod lang;
 mod repositories;
+mod repository;
 
 use crate::components::title::Title;
 use crate::components::projects::repositories::Repositories;
@@ -45,7 +47,7 @@ impl Component for Projects {
           </p>
           <p class="contents">
             {
-              r#"Estamos aca para crecer juntos and ayudar a otros futuros Rustaceans a escribir
+              r#"Estamos aca para crecer juntos y ayudar a otros futuros Rustaceans a escribir
               sus aplicaciones y conocer lo increible que es Rust!"#
             }
           </p>

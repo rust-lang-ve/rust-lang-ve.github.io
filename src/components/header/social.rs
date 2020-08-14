@@ -1,22 +1,21 @@
+use crate::components::icon::{
+  Icon,
+  icon_name::IconName
+};
+
 use yew::prelude::*;
 
-pub struct Social {
-  link: ComponentLink<Self>,
-}
-
-pub enum Msg {}
+pub struct Social;
 
 impl Component for Social {
-  type Message = Msg;
+  type Message = ();
   type Properties = ();
 
-  fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
-    Social {
-      link,
-    }
+  fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+    Self
   }
 
-  fn update(&mut self, msg: Self::Message) -> ShouldRender {
+  fn update(&mut self, _: Self::Message) -> ShouldRender {
     true
   }
 
@@ -28,14 +27,10 @@ impl Component for Social {
     html! {
       <ul id="social">
         <li>
-          <a href="">
-            <span class="icon telegram-icon s-28"></span>
-          </a>
+          <Icon icon_name=IconName::Telegram href="https://t.me/rustlangVE".to_string() />
         </li>
         <li>
-          <a href="">
-            <span class="icon github-icon s-28"></span>
-          </a>
+          <Icon icon_name=IconName::GitHub href="https://github.com/rust-lang-ve".to_string() />
         </li>
       </ul>
     }
