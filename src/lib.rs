@@ -1,7 +1,6 @@
 #![recursion_limit = "512"]
 
 mod components;
-mod services;
 
 use crate::components::header::Header;
 use crate::components::home::Home;

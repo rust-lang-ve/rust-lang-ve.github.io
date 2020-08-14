@@ -23,7 +23,7 @@ pub struct Repositories {
 pub struct Repository {
   pub name: String,
   pub description: String,
-  pub language: String,
+  pub language: Option<String>,
 }
 
 pub enum Msg {
@@ -121,17 +121,34 @@ impl Component for Repositories {
     } else if !self.is_fetching && self.has_repos {
       match &self.repositories {
         Some(repos) => {
-          fn render_repo(name: &str, description: &str, language: &str) -> Html {
-            html! {
-              <li class="repository">
-                <main>
-                  <strong>{ name }</strong>
-                  <p>{ description }</p>
-                </main>
-                <footer>
-                  <span>{ language }</span>
-                </footer>
-              </li>
+          fn render_repo(name: &str, description: &str, language: &Option<String>) -> Html {
+            match language {
+              Some(language) => {
+                html! {
+                  <li class="repository">
+                    <main>
+                      <strong>{ name }</strong>
+                      <p>{ description }</p>
+                    </main>
+                    <footer>
+                      <span>{ language }</span>
+                    </footer>
+                  </li>
+                }
+              },
+              None => {
+                html! {
+                  <li class="repository">
+                    <main>
+                      <strong>{ name }</strong>
+                      <p>{ description }</p>
+                    </main>
+                    <footer>
+                      <span>{ "No Language" }</span>
+                    </footer>
+                  </li>
+                }
+              }
             }
           }
 

@@ -43,7 +43,7 @@ impl Component for Projects {
             <i>{ "pull request" }</i>
             { "!" }
           </p>
-          <p class="content">
+          <p class="contents">
             {
               r#"Estamos aca para crecer juntos and ayudar a otros futuros Rustaceans a escribir
               sus aplicaciones y conocer lo increible que es Rust!"#
