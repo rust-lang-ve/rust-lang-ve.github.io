@@ -1,8 +1,8 @@
 use yew::prelude::*;
 
-pub struct Branding;
+pub struct Footer;
 
-impl Component for Branding {
+impl Component for Footer {
     type Message = ();
     type Properties = ();
 
@@ -20,15 +20,9 @@ impl Component for Branding {
 
     fn view(&self) -> Html {
         html! {
-          <div id="branding">
-            <img
-              alt="Rust Venezuela Logo"
-              src="https://avatars3.githubusercontent.com/u/68873317?s=38&v=4"
-              height="38"
-              width="38"
-            />
-            <h1>{ "Rust Venezuela" }</h1>
-          </div>
+          <footer id="main-footer">
+            <small>{ "Diseñado y Desarrollado con ❤️ y ☕ por Rustaceans" }</small>
+          </footer>
         }
     }
 }
