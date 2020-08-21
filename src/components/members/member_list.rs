@@ -1,5 +1,3 @@
-use crate::components::projects::repository::Repository as RepositoryComponent;
-
 use anyhow::Error;
 use serde::Deserialize;
 use yew::format::Nothing;
@@ -7,31 +5,31 @@ use yew::prelude::*;
 use yew::services::fetch::{FetchService, FetchTask, Request, Response};
 use yew::services::ConsoleService;
 
-/// URL to fetch repositories for **rust-lang-ve** organization from GitHub
-const GITHUB_REPOS_URL: &str = "https://api.github.com/orgs/rust-lang-ve/repos";
+/// URL to fetch members for **rust-lang-ve** organization from GitHub
+const GITHUB_MEMBERS_URL: &str = "https://api.github.com/orgs/rust-lang-ve/members";
 
-pub struct Repositories {
+#[derive(Deserialize, Debug)]
+pub struct User {
+    pub login: String,
+    pub avatar_url: String,
+    pub url: String,
+}
+
+pub struct MemberList {
     is_fetching: bool,
     fetch_failed: bool,
     fetch_task: Option<FetchTask>,
-    has_repos: bool,
+    has_members: bool,
     link: ComponentLink<Self>,
-    repositories: Option<Vec<Repository>>,
-}
-
-#[derive(Deserialize, Debug)]
-pub struct Repository {
-    pub name: String,
-    pub description: String,
-    pub language: Option<String>,
+    members: Option<Vec<User>>,
 }
 
 pub enum Msg {
     FetchFailed,
-    FetchSuccess(Vec<Repository>),
+    FetchSuccess(Vec<User>),
 }
 
-impl Component for Repositories {
+impl Component for MemberList {
     type Message = Msg;
     type Properties = ();
 
@@ -40,21 +38,21 @@ impl Component for Repositories {
             is_fetching: false,
             fetch_failed: false,
             fetch_task: None,
-            has_repos: false,
+            has_members: false,
             link,
-            repositories: None,
+            members: None,
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::FetchSuccess(repos) => {
-                if !repos.is_empty() {
-                    self.has_repos = true;
+            Msg::FetchSuccess(members) => {
+                if !members.is_empty() {
+                    self.has_members = true;
                 }
 
                 self.is_fetching = false;
-                self.repositories = Some(repos);
+                self.members = Some(members);
 
                 true
             }
@@ -83,28 +81,21 @@ impl Component for Repositories {
                     if meta.status.is_success() {
                         match body {
                             Ok(body) => {
-                                ConsoleService::info("Fetched repositories");
+                                ConsoleService::info("Fetched members list");
                                 let body = body.as_str();
 
-                                match serde_json::from_str::<Vec<Repository>>(body) {
-                                    Ok(repos) => {
-                                        return Msg::FetchSuccess(repos);
-                                    }
-                                    Err(_) => {
-                                        ConsoleService::error("Failed to deserialize response!")
-                                    }
+                                if let Ok(members) = serde_json::from_str::<Vec<User>>(body) {
+                                    return Msg::FetchSuccess(members);
                                 }
                             }
-                            Err(err) => {
-                                ConsoleService::error(err.to_string().as_str());
-                            }
+                            Err(err) => ConsoleService::error(err.to_string().as_str()),
                         }
                     }
 
                     Msg::FetchFailed
                 });
 
-            let request = Request::get(GITHUB_REPOS_URL).body(Nothing).unwrap();
+            let request = Request::get(GITHUB_MEMBERS_URL).body(Nothing).unwrap();
 
             let task = FetchService::fetch(request, callback).unwrap();
             self.fetch_task = Some(task);
@@ -114,34 +105,38 @@ impl Component for Repositories {
     fn view(&self) -> Html {
         fn render_failed_to_fetch() -> Html {
             html! {
-              <h3>{ "Failed to gather repos from GitHub!" }</h3>
+              <h3>{ "Failed to gather members from GitHub!" }</h3>
             }
         }
 
         if self.fetch_failed {
             render_failed_to_fetch()
-        } else if !self.is_fetching && self.has_repos {
-            match &self.repositories {
-                Some(repos) => {
-                    fn render_repo(
-                        name: &str,
-                        description: &str,
-                        language: &Option<String>,
-                    ) -> Html {
+        } else if !self.is_fetching && self.has_members {
+            match &self.members {
+                Some(members) => {
+                    fn render_member(login: &str, avatar_url: &str) -> Html {
+                        let alt_text = format!("{} GitHub Profile Picture", login);
+                        let user_profile_url = format!("https://github.com/{}", login);
+
                         html! {
-                          <RepositoryComponent
-                            description=description
-                            name=name
-                            language=language
-                          />
+                          <li class="contributor">
+                            <a href=user_profile_url.as_str() target="_blank">
+                              <img
+                                src=avatar_url
+                                alt=alt_text.as_str()
+                                height="60"
+                                width="60"
+                              />
+                            </a>
+                          </li>
                         }
                     }
 
                     html! {
-                      <ul class="content" id="repositories">
+                      <ul>
                         {
-                          for repos.iter().map(|repo| {
-                            render_repo(&repo.name, &repo.description, &repo.language)
+                          for members.iter().map(|member| {
+                            render_member(&member.login, &member.avatar_url)
                           })
                         }
                       </ul>
@@ -151,7 +146,7 @@ impl Component for Repositories {
             }
         } else {
             html! {
-              <h1>{"Nothing to see here!"}</h1>
+              <h1>{ "Nothing to see here!" }</h1>
             }
         }
     }

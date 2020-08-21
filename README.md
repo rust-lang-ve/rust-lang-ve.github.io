@@ -1,8 +1,10 @@
-# rust-lang-ve.github.io
-
-## About
-
-This template shows how to create a web app using Yew and wasm-pack. 
+<div>
+  <div align="center" style="display: block; text-align: center;">
+    <img src="https://avatars3.githubusercontent.com/u/68873317?s=120&v=4" height="120" width="120" />
+  </div>
+  <h1 align="center">rust-lang-ve.github.io</h1>
+  <span align="center">:octocat: rust-lang-ve's GitHub Page made with Yew because we 💖 Rust!</span>
+</div>
 
 ## 🚴 Usage
 
