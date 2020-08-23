@@ -26,7 +26,7 @@ impl Component for Home {
               <img
                 id="logo"
                 alt="Rust Venezuela Logo"
-                src="https://raw.githubusercontent.com/rust-lang-ve/design/master/assets/ferris.png"
+                src="https://raw.githubusercontent.com/rust-lang-ve/design/main/assets/ferris.png"
                 height="120"
                 width="180"
               />
