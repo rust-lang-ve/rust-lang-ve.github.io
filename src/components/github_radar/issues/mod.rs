@@ -1,13 +1,15 @@
 use yew::prelude::*;
 
-pub struct Branding;
+pub struct GitHubRadar {}
 
-impl Component for Branding {
+pub enum Msg {}
+
+impl Component for GitHubRadar {
     type Message = ();
     type Properties = ();
 
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Self
+        Self {}
     }
 
     fn update(&mut self, _: Self::Message) -> ShouldRender {
@@ -20,15 +22,9 @@ impl Component for Branding {
 
     fn view(&self) -> Html {
         html! {
-          <div id="branding">
-            <img
-              alt="Rust Venezuela Logo"
-              src="https://raw.githubusercontent.com/rust-lang-ve/design/main/assets/logo_above.png"
-              height="38"
-              width="38"
-            />
-            <h1>{ "Rust Venezuela" }</h1>
-          </div>
+            <section id="github-radar">
+                /// Tabs Goes Here
+            </section>
         }
     }
 }

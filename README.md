@@ -6,7 +6,28 @@
   <span align="center">:octocat: rust-lang-ve's GitHub Page made with Yew because we 💖 Rust!</span>
 </div>
 
-## 🚴 Usage
+## 🚴 Development
+
+### Requirements
+
+- GitHub Personal Access Token for GPM
+- NodeJS (Yarn)
+- Cargo
+
+### Setting up .npmrc to fetch GPM
+
+This project makes use of a package served by GPM (GitHub Package Manager).
+In order to fetch this package you must create a `.npmrc` file in your home directory (`touch ~/.npmrc`), then
+go to https://github.com/settings/tokens and clic on **Generate new token**, create your token with full access
+to avoid issues fetching the package, copy your token to your clipboard and finally append the following to the `.npmrc` file you created before.
+
+```bash
+//npm.pkg.github.com/:_authToken=<YOUR PERSONAL ACCESS TOKEN>
+```
+
+Finally run `yarn` in the project directory to install packages.
+
+> **IMPORTANT** Do not share your Personal Access Token with anyone! This token grant access to your GitHub profile!
 
 ### 🛠️ Build
 
