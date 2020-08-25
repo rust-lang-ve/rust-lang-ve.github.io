@@ -1,7 +1,7 @@
-use crate::components::projects::lang::Lang;
+use crate::components::github_radar::repositories::lang::Lang;
 use yew::prelude::*;
 
-pub struct Repository {
+pub struct RepositoryView {
     pub description: String,
     pub language: Lang,
     pub name: String,
@@ -14,7 +14,7 @@ pub struct Props {
     pub name: String,
 }
 
-impl Component for Repository {
+impl Component for RepositoryView {
     type Message = ();
     type Properties = Props;
 

@@ -1,4 +1,7 @@
-use crate::components::projects::repository::Repository as RepositoryComponent;
+use crate::components::github_radar::repositories::repository::RepositoryView;
+
+pub mod lang;
+pub mod repository;
 
 use anyhow::Error;
 use serde::Deserialize;
@@ -114,7 +117,7 @@ impl Component for Repositories {
     fn view(&self) -> Html {
         fn render_failed_to_fetch() -> Html {
             html! {
-              <h3>{ "Failed to gather repos from GitHub!" }</h3>
+                <span>{"Tuvimos problemas cargando la informacion"}</span>
             }
         }
 
@@ -129,7 +132,7 @@ impl Component for Repositories {
                         language: &Option<String>,
                     ) -> Html {
                         html! {
-                          <RepositoryComponent
+                          <RepositoryView
                             description=description
                             name=name
                             language=language
@@ -138,7 +141,7 @@ impl Component for Repositories {
                     }
 
                     html! {
-                      <ul class="content" id="repositories">
+                      <ul class="content" id="github-projects">
                         {
                           for repos.iter().map(|repo| {
                             render_repo(&repo.name, &repo.description, &repo.language)

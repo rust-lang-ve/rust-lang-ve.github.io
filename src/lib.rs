@@ -1,13 +1,14 @@
 #![recursion_limit = "512"]
 
+mod api;
 mod components;
 
 use crate::components::about::About;
 use crate::components::footer::Footer;
+use crate::components::github_radar::GitHubRadar;
 use crate::components::header::Header;
 use crate::components::home::Home;
 use crate::components::members::Members;
-use crate::components::projects::Projects;
 
 use wasm_bindgen::prelude::*;
 use yew::prelude::*;
@@ -39,7 +40,7 @@ impl Component for Model {
             <Header />
             <main id="main-content">
               <Home />
-              <Projects />
+              <GitHubRadar />
               <About />
               <Members />
               <Footer />
