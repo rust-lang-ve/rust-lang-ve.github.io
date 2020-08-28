@@ -1,9 +1,9 @@
 <div>
   <div align="center" style="display: block; text-align: center;">
-    <img src="https://avatars3.githubusercontent.com/u/68873317?s=120&v=4" height="120" width="120" />
+    <img src="https://raw.githubusercontent.com/rust-lang-ve/design/main/assets/logo_above.png" height="120" width="120" />
   </div>
   <h1 align="center">rust-lang-ve.github.io</h1>
-  <span align="center">:octocat: rust-lang-ve's GitHub Page made with Yew because we 💖 Rust!</span>
+  <h4 align="center">:octocat: rust-lang-ve's GitHub Page made with Yew because we 💖 Rust!</h4>
 </div>
 
 ## 🚴 Development
