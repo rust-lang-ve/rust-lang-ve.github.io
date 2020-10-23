@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
-    "deploy": "yarn build && gh-pages -d dist -b master",
-    "start": "webpack-dev-server --mode development"
+    "deploy": "yarn build && gh-pages -d dist -b main",
+    "dev": "webpack-dev-server --mode development"
   },
   "devDependencies": {
     "@wasm-tool/wasm-pack-plugin": "^1.1.0",
