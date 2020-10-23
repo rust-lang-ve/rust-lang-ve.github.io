@@ -1,4 +1,5 @@
 pub mod about;
+pub mod accordion;
 pub mod footer;
 pub mod github_radar;
 pub mod header;
