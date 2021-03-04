@@ -24,7 +24,7 @@ impl Component for Social {
         html! {
           <ul id="social">
             <li>
-              <Icon icon_name=IconName::Discord href="https://discord.gg/MpRnunB".to_string() />
+              <Icon icon_name=IconName::Discord href="https://discord.gg/5ZnfnYaqNr".to_string() />
             </li>
             <li>
               <Icon icon_name=IconName::Telegram href="https://t.me/rustlangVE".to_string() />
